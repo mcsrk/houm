@@ -7,10 +7,10 @@ const { Content } = Layout;
 
 const CustomContent = () => {
   return (
-    <Content style={{ background: "#ECF1FE", marginTop: 60 }}>
+    <Content style={{ background: "#fff", marginTop: 60 }}>
       <Layout
         style={{
-          background: "#ECF1FE",
+          background: "#fff",
           margin: 50,
         }}
       >

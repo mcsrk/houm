@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, Menu, Dropdown } from "antd";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
+import { default as logoHeader } from "../../assets/img/houmLogo.svg";
 
 import "../../styles/header.css";
 
@@ -14,16 +15,16 @@ const CustomHeader = ({ history, visibleDropdown, setVisibleDropdown }) => {
 
   return (
     <Header
-      className={"w-full z-1002 fixed flex justify-between bg-gray-900"}
+      className={"w-full z-1002 fixed flex justify-between bg-white"}
       style={{
-        boxShadow: `5px 5px 10px #c9cdd8,
-                -5px -5px 10px #ffffff`,
+        boxShadow: `rgba(38, 50, 56, 0.15) 0px 4px 15px`,
       }}
     >
       <div className={"m-0 flex flex-row items-center"}>
-        <div>{/* <img width="130px" src={logo} alt="logo" /> */}</div>
+        <div>
+          <img width="90px" src={logoHeader} alt="logo" />
+        </div>
         <Menu
-          theme="dark"
           mode="horizontal"
           selectedKeys={[history.location.pathname]}
           className={"ml-20"}
@@ -40,7 +41,7 @@ const CustomHeader = ({ history, visibleDropdown, setVisibleDropdown }) => {
         <Dropdown
           overlay={
             <>
-              <Menu mode="vertical" theme="dark">
+              <Menu mode="vertical">
                 <Menu.Item>Hola</Menu.Item>
                 <Menu.Item>Como vas</Menu.Item>
                 <Menu.Item>Adios</Menu.Item>
@@ -57,7 +58,6 @@ const CustomHeader = ({ history, visibleDropdown, setVisibleDropdown }) => {
       </div>
       <div className={"m-0 flex flex-row items-center"}>
         <Menu
-          theme="dark"
           mode="horizontal"
           selectedKeys={[history.location.pathname]}
           className={"ml-20"}
