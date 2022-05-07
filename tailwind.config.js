@@ -26,6 +26,11 @@ module.exports = {
       red: colors.rose,
       yellow: colors.amber,
     },
+    extend: {
+      backgroundImage: {
+        "hero-bg": "url('assets/img/bg.png')",
+      },
+    },
   },
   darkMode: false, // or 'media' or 'class'
   plugins: [],

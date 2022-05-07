@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Button, Radio } from "antd";
-/*
-    height: "fit-content",
-    borderRadius: "8px",
-    fontSize: "16px",
-    fontFamily: "Roboto",  
-    padding: "4px 24px",
-    margin: "0 12px",
-    border: "1px solid #fff",
-*/
+import { Button } from "antd";
 const radioValues = [
-  { label: "Arrendar", value: "a" },
-  { label: "Comprar", value: "b" },
-  { label: "Proyectos", value: "c" },
+  { label: "Albums", value: "albums" },
+  { label: "Artistas", value: "artist" },
+  { label: "Tracks", value: "tracks" },
 ];
 
-const FilterActionType = () => {
+const FilterType = () => {
   const [buttonOptions, setButtonOptions] = useState([]);
   const [actionType, setActionType] = useState(radioValues[0].value);
 
@@ -24,7 +15,7 @@ const FilterActionType = () => {
       return (
         <Button
           size="large"
-          className="font-bold text-lg w-32 rounded-3xl border-0 shadow-none text-houmtxt-button hover:bg-gray-100 hover:text-houmtxt-button focus:text-white focus:bg-houmbg-focusBtn"
+          className="font-bold text-lg w-32 rounded-3xl border-0 shadow-none text-houmtxt-button bg-white hover:bg-gray-100 hover:text-houmtxt-button focus:text-white focus:bg-houmbg-focusBtn"
           onClick={() => setActionType(ele.value)}
         >
           {ele.label}
@@ -45,4 +36,4 @@ const FilterActionType = () => {
   );
 };
 
-export default FilterActionType;
+export default FilterType;

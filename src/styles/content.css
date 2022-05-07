@@ -1,7 +1,0 @@
-.menu .ant-menu-inline .ant-menu-item::after {
-  border-right: none !important;
-}
-
-.menu .ant-menu-inline .ant-menu-item {
-  border-radius: 50px;
-}
