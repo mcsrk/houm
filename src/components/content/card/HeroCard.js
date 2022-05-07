@@ -5,10 +5,10 @@ const { Text } = Typography;
 const HeroCard = ({ songInfo }) => {
   const [authors, setAuthors] = useState([]);
 
-  useEffect(() => {
-    let authorsArray = songInfo?.creators.items.map(({ name }) => name);
-    setAuthors(authorsArray);
-  }, [songInfo]);
+  // useEffect(() => {
+  //   let authorsArray = songInfo?.creators.items.map(({ name }) => name);
+  //   setAuthors(authorsArray);
+  // }, [songInfo]);
 
   const getImage = () => {
     let imageLink =

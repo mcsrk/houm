@@ -6,6 +6,7 @@ module.exports = {
     colors: {
       houmtxt: {
         button: "#607D8B",
+        hover: "#b2301e",
       },
       houmbg: {
         focusBtn: "#263238",
