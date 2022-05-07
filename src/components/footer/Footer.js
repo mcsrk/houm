@@ -80,7 +80,11 @@ const SocialMediaList = (list) => {
       {list.map((ele) => {
         return (
           <li className="inline m-2">
-            <a href={ele.link} className="text-muted" rel="noreferrer">
+            <a
+              href={ele.link}
+              className="text-muted hover:text-houmPalette-orange"
+              rel="noreferrer"
+            >
               {ele.icon}
             </a>
           </li>

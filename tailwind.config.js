@@ -11,6 +11,9 @@ module.exports = {
       houmbg: {
         focusBtn: "#263238",
       },
+      houmPalette: {
+        orange: "#FF452B",
+      },
       trueGray: {
         darkest: "#171717",
         dark: "#404040",
