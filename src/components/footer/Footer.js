@@ -133,8 +133,7 @@ const CustomFooter = () => {
               <Col xs={24} md={6} lg={15} className="p-3 mb-lg-0">
                 <p className="text-base max-w-sm  ">
                   En Houm usamos la tecnología y el diseño para hacer de la
-                  experiencia de arrendar, comprar o vender una propiedad algo
-                  simple y agradable.
+                  experiencia de descubrir música algo simple y agradable.
                 </p>
               </Col>
             </Row>
