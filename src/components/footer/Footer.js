@@ -1,15 +1,122 @@
 import React from "react";
 import { Col, Divider, Layout, Row } from "antd";
 import {
-  FacebookFilled,
-  InstagramFilled,
-  TwitterCircleFilled,
-  YoutubeFilled,
   LinkedinFilled,
   WhatsAppOutlined,
+  GithubOutlined,
 } from "@ant-design/icons";
+
 import { default as logo } from "../../assets/img/grayLogo.svg";
+
 const { Footer } = Layout;
+
+const mediaInfo = [
+  {
+    link: "https://www.linkedin.com/in/jhon-acosta-48595314b/",
+    icon: <LinkedinFilled />,
+  },
+  {
+    link: "https://github.com/mcsrk",
+    icon: <GithubOutlined />,
+  },
+];
+const companyList = {
+  title: "Compañía",
+  children: [
+    {
+      link: "https://www.spotify.com/bo/about-us/contact/",
+      label: "Acerca de",
+    },
+    {
+      link: "https://www.lifeatspotify.com/",
+      label: "Empleo",
+    },
+  ],
+};
+const communityList = {
+  title: "Comunidad",
+  children: [
+    {
+      label: "Para artistas",
+      link: "https://artists.spotify.com/",
+    },
+    {
+      label: "Desarrolladores",
+      link: "https://developer.spotify.com/",
+    },
+    {
+      label: "Inversionistas",
+      link: "https://investors.spotify.com/",
+    },
+  ],
+};
+const helpList = {
+  title: "Enlaces útiles",
+  children: [
+    {
+      label: "Ayuda",
+      link: "https://support.spotify.com/",
+    },
+  ],
+};
+const contactList = {
+  title: "Contáctanos",
+  children: [
+    {
+      label: "ayuda@houm.com",
+      link: "mailto:ayuda@houm.com/",
+    },
+    {
+      label: "WhatsApp",
+      link: "https://whatsapp.com/",
+      icon: <WhatsAppOutlined />,
+    },
+  ],
+};
+
+const SocialMediaList = (list) => {
+  return (
+    <ul className="mt-4 text-4xl">
+      {list.map((ele) => {
+        return (
+          <li className="inline m-2">
+            <a
+              href={ele.link}
+              className="text-muted hover:text-houmPalette-orange"
+              rel="noreferrer"
+            >
+              {ele.icon}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+const SectionsList = (list) => {
+  return (
+    <>
+      <h6 className="font-extrabold mb-4">{list.title}</h6>
+      <ul className="list-unstyled mb-0">
+        {list?.children.map((ele) => {
+          return (
+            <li className="mb-2">
+              <a
+                href={ele.link ?? "#"}
+                className="text-muted hover:text-houmtxt-hover"
+                rel="noreferrer"
+              >
+                {ele?.icon}
+                {ele.label ?? "-"}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+};
 
 const CustomFooter = () => {
   return (
@@ -26,8 +133,7 @@ const CustomFooter = () => {
               <Col xs={24} md={6} lg={15} className="p-3 mb-lg-0">
                 <p className="text-base max-w-sm  ">
                   En Houm usamos la tecnología y el diseño para hacer de la
-                  experiencia de arrendar, comprar o vender una propiedad algo
-                  simple y agradable.
+                  experiencia de descubrir música algo simple y agradable.
                 </p>
               </Col>
             </Row>
@@ -35,177 +141,16 @@ const CustomFooter = () => {
           <Col span={14}>
             <Row>
               <Col xs={24} md={6} lg={6} className="p-3 mb-4 mb-lg-0">
-                <h6 className="font-extrabold mb-4  ">Navega en Houm</h6>
-                <ul className="list-unstyled mb-0">
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Publica para arrendar
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Publica para vender
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Invierte
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      ¡Refiere y gana!
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      ¿Quiénes somos?
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Calcular arriendo o venta
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Simulador de crédito
-                    </a>
-                  </li>
-                </ul>
+                {SectionsList(companyList)}
               </Col>
               <Col xs={24} md={6} lg={6} className="p-3 mb-4 mb-lg-0">
-                <h6 className="font-extrabold mb-4  ">Trabaja en Houm</h6>
-                <ul className="list-none mb-0">
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Sé un Houmer mostrador
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Sé un Houmer fotógrafo
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Únete a nuestro team
-                    </a>
-                  </li>
-                </ul>
+                {SectionsList(communityList)}
               </Col>
               <Col xs={24} md={6} lg={6} className="p-3 mb-lg-0">
-                <h6 className="font-extrabold mb-4  ">Acerca de Houm</h6>
-                <ul className="list-none mb-0">
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      El blog de Houm
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Nuestros Houmers
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Preguntas frecuentes
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Términos y Condiciones
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      Política de privacidad
-                    </a>
-                  </li>
-                </ul>
+                {SectionsList(helpList)}
               </Col>
               <Col xs={24} md={6} lg={6} className="p-3 mb-lg-0">
-                <h6 className="font-extrabold mb-4">Contáctanos</h6>
-                <ul className="list-none mb-0">
-                  <li className="mb-2">
-                    <a
-                      href="mailto:ayuda@houm.com"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      ayuda@houm.com
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://houm.com/co"
-                      className="text-muted"
-                      rel="noreferrer"
-                    >
-                      <WhatsAppOutlined /> WhatsApp
-                    </a>
-                  </li>
-                </ul>
+                {SectionsList(contactList)}
               </Col>
             </Row>
           </Col>
@@ -221,61 +166,7 @@ const CustomFooter = () => {
                 Calle 103 #19-60, Bogotá, Cundinamarca, Colombia
               </p>
             </Col>
-            <Col>
-              <p className="text-muted mb-0 py-2"></p>
-              <ul className="mt-4 text-4xl">
-                <li className="inline m-2">
-                  <a
-                    href="https://www.facebook.com/houm.co"
-                    target="_blank"
-                    title="facebook"
-                    rel="noreferrer"
-                  >
-                    <FacebookFilled />
-                  </a>
-                </li>
-                <li className="inline m-2">
-                  <a
-                    href="https://www.instagram.com/houm_co/"
-                    target="_blank"
-                    title="facebook"
-                    rel="noreferrer"
-                  >
-                    <InstagramFilled />
-                  </a>
-                </li>
-                <li className="inline m-2">
-                  <a
-                    href="https://www.linkedin.com/company/houm-com/"
-                    target="_blank"
-                    title="facebook"
-                    rel="noreferrer"
-                  >
-                    <LinkedinFilled />
-                  </a>
-                </li>
-                <li className="inline m-2">
-                  <a
-                    href="https://twitter.com/HoumLatam"
-                    target="_blank"
-                    title="facebook"
-                    rel="noreferrer"
-                  >
-                    <TwitterCircleFilled />
-                  </a>
-                </li>
-                <li className="inline m-2">
-                  <a
-                    href="https://www.youtube.com/channel/UCDNDrxY5zs2MfKc87SbFmIA"
-                    target="_blank"
-                    title="facebook"
-                    rel="noreferrer"
-                  >
-                    <YoutubeFilled />
-                  </a>
-                </li>
-              </ul>
-            </Col>
+            <Col>{SocialMediaList(mediaInfo)}</Col>
           </Row>
         </div>
       </div>

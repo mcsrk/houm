@@ -2,10 +2,10 @@ import { BackTop, Layout } from "antd";
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+import useWindowDimensions from "../utils/window";
 import Header from "../components/header/Header";
 import Content from "../components/content/Content";
 import Footer from "../components/footer/Footer";
-import useWindowDimensions from "../utils/window";
 
 const Main = ({ visibleDropdown, setVisibleDropdown }) => {
   const { height } = useWindowDimensions();
@@ -26,11 +26,10 @@ const Main = ({ visibleDropdown, setVisibleDropdown }) => {
           setVisibleDropdown={setVisibleDropdown}
         />
         <Switch>
-          <Route path="/pasaportes" exact>
+          <Route path="/" exact>
             <Content />
           </Route>
-
-          <Redirect to="pasaportes" />
+          <Redirect to="" />
         </Switch>
         <Footer />
       </Layout>

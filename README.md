@@ -1,5 +1,8 @@
 # Houm.com clone for Front-End technical test.
 
+An alternative version of what would be Houm in a different universe: some kind of music platform.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
