@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import es_ES from "antd/es/locale/es_ES";
 
 import useWindowDimensions from "./utils/window";
-import Main from "./pages/Main";
+import Main from "./router/Main";
 
 const App = () => {
   const { height } = useWindowDimensions();

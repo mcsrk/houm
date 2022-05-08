@@ -1,6 +1,8 @@
 import React from "react";
 import { Affix, Input } from "antd";
+
 const { Search } = Input;
+
 const SearchBar = ({ setInput, input }) => {
   return (
     <Affix className="w-3/4 my-3 mx-auto" offsetTop={10}>

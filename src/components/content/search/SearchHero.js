@@ -1,8 +1,11 @@
 import React from "react";
 import { Col, Row, Typography } from "antd";
+
 import SearchBar from "./filters/SearchBar";
 import FilterType from "./filters/FilterType";
+
 const { Text } = Typography;
+
 const SearchHero = () => {
   return (
     <div
