@@ -18,7 +18,14 @@ const SongCard = ({ trackData }) => {
     setDuration(convertMsToMinSec(trackData?.duration?.totalMilliseconds));
     setAlbumLink(trackData?.albumOfTrack.uri);
     setAlbumTitle(trackData?.albumOfTrack.name);
-    setCoverArt(trackData?.albumOfTrack.coverArt.sources[0]);
+    const smallestAlbumImage = trackData?.albumOfTrack.coverArt.sources.reduce(
+      (smallest, image) => {
+        if (image.height < smallest.height) return image;
+        return smallest;
+      },
+      trackData?.albumOfTrack.coverArt.sources[0]
+    );
+    setCoverArt(smallestAlbumImage);
     setSongLink(trackData?.uri);
 
     // Return natural language comma separated artists namelist linked to their profiles
@@ -50,7 +57,7 @@ const SongCard = ({ trackData }) => {
             onClick={() => {
               window.location.replace(albumLink);
             }}
-            className="w-12 rounded-md border-2 border-solid border-transparent hover:border-houmPalette-orange cursor-pointer select-none"
+            className="w-12 rounded-md border-2 border-solid border-transparent hover:border-houmPalette-primary cursor-pointer select-none"
           >
             <img
               className="object-cover w-full h-12 rounded-md"
@@ -83,7 +90,7 @@ const SongCard = ({ trackData }) => {
           onClick={() => {
             window.location.replace(songLink);
           }}
-          className=" text-lg hover:text-houmPalette-orange cursor-pointer select-none"
+          className=" text-lg hover:text-houmPalette-primary cursor-pointer select-none"
         />
       </Col>
       {/* duration */}

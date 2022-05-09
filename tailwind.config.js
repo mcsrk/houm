@@ -12,7 +12,7 @@ module.exports = {
         focusBtn: "#263238",
       },
       houmPalette: {
-        orange: "#FF452B",
+        primary: "#FF452B",
       },
       trueGray: {
         darkest: "#171717",

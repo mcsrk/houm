@@ -83,7 +83,7 @@ const SocialMediaList = (list) => {
             <a
               key={"a-" + ele.link}
               href={ele.link}
-              className="text-muted hover:text-houmPalette-orange"
+              className="text-muted hover:text-houmPalette-primary"
               rel="noreferrer"
             >
               {ele.icon}
