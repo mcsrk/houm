@@ -6,14 +6,14 @@ import FilterType from "./filters/FilterType";
 
 const { Text } = Typography;
 
-const SearchHero = () => {
+const SearchHero = ({ onSearch, searchTerm, setSearchTerm }) => {
   return (
     <div
-      className={
-        "w-full min-h-full bg-hero-bg bg-center bg-cover bg-no-repeat pt-8"
-      }
+      className={"min-h-full bg-hero-bg bg-center bg-cover bg-no-repeat pt-8"}
       style={{
-        minHeight: "600px",
+        maxWidth: "100%",
+        height: "auto",
+        minHeight: "200px",
       }}
     >
       <Col
@@ -30,7 +30,11 @@ const SearchHero = () => {
 
         <FilterType />
 
-        <SearchBar />
+        <SearchBar
+          onSearch={onSearch}
+          setSearchTerm={setSearchTerm}
+          searchTerm={searchTerm}
+        />
       </Col>
     </div>
   );

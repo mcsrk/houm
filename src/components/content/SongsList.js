@@ -2,10 +2,11 @@ import { List } from "antd";
 import React from "react";
 import SongCard from "./card/SongCard";
 
-const SongsList = ({ tracks }) => {
+const SongsList = ({ loading, tracks }) => {
   return (
     <List
-      className="rounded-md shadow-lg max-w-md"
+      loading={loading}
+      className="mx-auto rounded-md shadow-lg max-w-md"
       size="small"
       dataSource={tracks}
       renderItem={(track) => <SongCard trackData={track.data} />}
