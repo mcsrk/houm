@@ -79,8 +79,9 @@ const SocialMediaList = (list) => {
     <ul className="mt-4 text-4xl">
       {list.map((ele) => {
         return (
-          <li className="inline m-2">
+          <li className="inline m-2" key={"li-" + ele.link}>
             <a
+              key={"a-" + ele.link}
               href={ele.link}
               className="text-muted hover:text-houmPalette-orange"
               rel="noreferrer"
@@ -97,12 +98,15 @@ const SocialMediaList = (list) => {
 const SectionsList = (list) => {
   return (
     <>
-      <h6 className="font-extrabold mb-4">{list.title}</h6>
+      <h6 className="font-extrabold mb-4" key={list.title}>
+        {list.title}
+      </h6>
       <ul className="list-unstyled mb-0">
         {list?.children.map((ele) => {
           return (
-            <li className="mb-2">
+            <li className="mb-2" key={list.tilte + "li-" + ele.link}>
               <a
+                key={"a-" + ele.link}
                 href={ele.link ?? "#"}
                 className="text-muted hover:text-houmtxt-hover"
                 rel="noreferrer"
@@ -120,7 +124,7 @@ const SectionsList = (list) => {
 
 const CustomFooter = () => {
   return (
-    <Footer classNameName={"bg-white"}>
+    <Footer className={"bg-white"}>
       {/*  Footer  */}
 
       <div className="container">

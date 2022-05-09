@@ -16,6 +16,7 @@ const FilterType = () => {
     const temp = radioValues.map((ele) => {
       return (
         <Button
+          key={"button-" + ele.value}
           size="large"
           className="font-bold text-lg w-32 rounded-3xl border-0 shadow-none text-houmtxt-button bg-white hover:bg-gray-100 hover:text-houmtxt-button focus:text-white focus:bg-houmbg-focusBtn"
           onClick={() => setActionType(ele.value)}
