@@ -7,6 +7,7 @@ const SongCard = ({ trackData }) => {
   const [name, setName] = useState();
   const [artists, setArtists] = useState([]);
   const [duration, setDuration] = useState("0:00");
+  const [coverArt, setCoverArt] = useState(null);
 
   const [albumLink, setAlbumLink] = useState(null);
   const [albumTitle, setAlbumTitle] = useState(null);
@@ -17,6 +18,7 @@ const SongCard = ({ trackData }) => {
     setDuration(convertMsToMinSec(trackData?.duration?.totalMilliseconds));
     setAlbumLink(trackData?.albumOfTrack.uri);
     setAlbumTitle(trackData?.albumOfTrack.name);
+    setCoverArt(trackData?.albumOfTrack.coverArt.sources[0]);
     setSongLink(trackData?.uri);
 
     // Return natural language comma separated artists namelist linked to their profiles
@@ -44,17 +46,21 @@ const SongCard = ({ trackData }) => {
       {/* thumbnail */}
       <Col span={4}>
         <Tooltip title={albumTitle} color={"#FF452B"}>
-          <img
+          <div
             onClick={() => {
               window.location.replace(albumLink);
             }}
-            className="rounded-md border-2 border-double border-transparent hover:border-houmPalette-orange cursor-pointer select-none"
-            width="50px"
-            alt="single-cover"
-            src={
-              "https://www.humonegro.com/wp-content/TAME-IMPALA-CURRENTS-BIG.png"
-            }
-          />
+            className="w-12 rounded-md border-2 border-solid border-transparent hover:border-houmPalette-orange cursor-pointer select-none"
+          >
+            <img
+              className="object-cover w-full h-12 rounded-md"
+              alt="single-cover"
+              src={
+                coverArt?.url ??
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+              }
+            />
+          </div>
         </Tooltip>
       </Col>
       {/* title & artists */}
