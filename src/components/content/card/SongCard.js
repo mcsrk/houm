@@ -67,7 +67,7 @@ const SongCard = ({ trackData }) => {
       <Col span={12} className=" text-houmtxt-button">
         <Row>
           <div
-            className="font-bold text-black hover:underline cursor-pointer hover:text-houmtxt-hover"
+            className="w-full overflow-hidden whitespace-nowrap overflow-ellipsis font-bold text-black hover:underline cursor-pointer hover:text-houmtxt-hover"
             onClick={() => {
               window.location.replace(songLink);
             }}
