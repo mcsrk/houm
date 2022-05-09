@@ -34,6 +34,7 @@ module.exports = {
       backgroundImage: {
         "hero-bg": "url('assets/img/bg.png')",
       },
+      borderStyle: ["hover"],
     },
   },
   darkMode: false, // or 'media' or 'class'
