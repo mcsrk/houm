@@ -1,4 +1,3 @@
-import React from "react";
 import { Affix, Input } from "antd";
 
 const { Search } = Input;
