@@ -1,4 +1,3 @@
-import React from "react";
 import { Col, Divider, Layout, Row } from "antd";
 import {
   LinkedinFilled,

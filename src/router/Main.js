@@ -1,5 +1,4 @@
 import { BackTop, Layout } from "antd";
-import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import useWindowDimensions from "utils/window";
