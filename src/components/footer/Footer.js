@@ -6,7 +6,7 @@ import {
   GithubOutlined,
 } from "@ant-design/icons";
 
-import { default as logo } from "../../assets/img/grayLogo.svg";
+import { default as logo } from "assets/img/grayLogo.svg";
 
 const { Footer } = Layout;
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Layout } from "antd";
 import { withRouter } from "react-router";
 
-import { default as logoHeader } from "../../assets/img/houmLogo.svg";
+import { default as logoHeader } from "assets/img/houmLogo.svg";
 
 const { Header } = Layout;
 
