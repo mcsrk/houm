@@ -9,7 +9,7 @@ const { Text } = Typography;
 
 const Description = () => (
   <Row className="text-center">
-    <Text strong={true} className="m-0 text-3xl text-trueGray-dark">
+    <Text strong={true} className="mx-auto mb-2 text-3xl text-trueGray-dark w-2/3 ">
       Encuentra los álbumes, artistas y tracks que más te gustan.
     </Text>
   </Row>
