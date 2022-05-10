@@ -28,7 +28,6 @@ const ContentPage = () => {
 
   //Generic fetching function for different query types
   const fetchSearchData = async () => {
-    setLoading(true);
     const config = {
       params: {
         q: searchTerm,
@@ -43,11 +42,12 @@ const ContentPage = () => {
       artists: setArtist,
       albums: setAlbums,
     };
+    setLoading(true);
     try {
       const searchRes = await getRequest("search", config);
       setters[queryType](searchRes.data[queryType].items);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setters[queryType]([]);
     }
     setLoading(false);

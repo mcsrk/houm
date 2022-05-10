@@ -1,38 +1,28 @@
 import { BackTop, Layout } from "antd";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import useWindowDimensions from "utils/window";
+// Components
 import Header from "components/header/Header";
 import Content from "pages/Content";
 import Footer from "components/footer/Footer";
 
-const Main = ({ visibleDropdown, setVisibleDropdown }) => {
-  const { height } = useWindowDimensions();
+// Utils
+import useWindowDimensions from "utils/window";
 
+const Main = () => {
+  const { height } = useWindowDimensions();
   return (
-    <>
-      <Layout
-        style={{ minHeight: height }}
-        onClick={() => {
-          if (visibleDropdown) {
-            setVisibleDropdown(false);
-          }
-        }}
-      >
-        <BackTop />
-        <Header
-          visibleDropdown={visibleDropdown}
-          setVisibleDropdown={setVisibleDropdown}
-        />
-        <Switch>
-          <Route path="/" exact>
-            <Content />
-          </Route>
-          <Redirect to="" />
-        </Switch>
-        <Footer />
-      </Layout>
-    </>
+    <Layout style={{ minHeight: height }}>
+      <BackTop />
+      <Header />
+      <Switch>
+        <Route path="/" exact>
+          <Content />
+        </Route>
+        <Redirect to="" />
+      </Switch>
+      <Footer />
+    </Layout>
   );
 };
 
