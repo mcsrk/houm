@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "https://spotify23.p.rapidapi.com",
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
-    "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-    "X-RapidAPI-Key": "ca518ab6e6msh52114e5a0a9b06cp1ebbd1jsn48af2f6deaf2",
+    "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+    "X-RapidAPI-Host": process.env.REACT_APP_API_HOST,
   },
-  timeout: 2000,
+  // timeout: 2500,
 });
 
 export function getRequest(URL, payload) {
