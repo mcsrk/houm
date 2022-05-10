@@ -1,4 +1,3 @@
-import React from "react";
 import { Col, Row, Typography } from "antd";
 
 import SearchBar from "./filters/SearchBar";
@@ -6,10 +5,10 @@ import FilterType from "./filters/FilterType";
 
 const { Text } = Typography;
 
-const SearchHero = ({ onSearch, searchTerm, setSearchTerm }) => {
+const SearchHero = ({ onSearch, searchTerm, setSearchTerm, queryType,  setQueryType }) => {
   return (
     <div
-      className={"min-h-full bg-hero-bg bg-center bg-cover bg-no-repeat pt-8"}
+      className="min-h-full bg-hero-bg bg-center bg-cover bg-no-repeat pt-8"
       style={{
         maxWidth: "100%",
         height: "auto",
@@ -28,12 +27,13 @@ const SearchHero = ({ onSearch, searchTerm, setSearchTerm }) => {
           </Text>
         </Row>
 
-        <FilterType />
+        <FilterType queryType={queryType} setQueryType={setQueryType}/>
 
         <SearchBar
           onSearch={onSearch}
           setSearchTerm={setSearchTerm}
           searchTerm={searchTerm}
+          
         />
       </Col>
     </div>
