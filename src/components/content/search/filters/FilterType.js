@@ -6,9 +6,9 @@ import SpotifyContext from "context/spotifyContext";
 // Consts
 import { filterTypeButtons } from "utils/constans";
 
-const getOptionButtons = (_queryType, _setQueryType) => {
+const getOptionButtons = (queryType, setQueryType) => {
   const optionButtons = filterTypeButtons.map((e) => {
-    const active = e.value === _queryType;
+    const active = e.value === queryType;
     return (
       <span
         key={"option-" + e.value}
@@ -17,7 +17,7 @@ const getOptionButtons = (_queryType, _setQueryType) => {
             ? "bg-houmbg-focusBtn text-white"
             : "bg-white hover:bg-gray-100 hover:text-houmtxt-button"
         } `}
-        onClick={() => _setQueryType(e.value)}
+        onClick={() => setQueryType(e.value)}
       >
         {e.label}
       </span>
