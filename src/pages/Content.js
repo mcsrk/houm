@@ -18,7 +18,7 @@ const { Content } = Layout;
 const ContentPage = () => {
   const [loading, setLoading] = useState(false);
 
-  const [searchTerm, setSearchTerm] = useState("tame impala");
+  const [searchTerm, setSearchTerm] = useState("");
   const [queryType, setQueryType] = useState("tracks");
   const [totalCount, setTotalCount] = useState("0");
   const [offset, setOffset] = useState("0");
@@ -37,7 +37,7 @@ const ContentPage = () => {
   const fetchSearchData = async () => {
     const data = {
       params: {
-        q: searchTerm,
+        q: searchTerm !== "" ? searchTerm : "rock",
         type: queryType,
         offset: offset,
         limit: limit,
@@ -55,11 +55,11 @@ const ContentPage = () => {
     try {
       const searchRes = await getRequest("search", data);
       setters[queryType](searchRes.data[queryType].items);
-      setTotalCount( searchRes.data[queryType].totalCount)
+      setTotalCount(searchRes.data[queryType].totalCount);
     } catch (error) {
       console.error(error);
       setters[queryType]([]);
-      setTotalCount(0)
+      setTotalCount(0);
     }
     setLoading(false);
   };
@@ -92,10 +92,11 @@ const ContentPage = () => {
         }}
       >
         <SearchHero />
-      
-        {isTrack && <SongsList loading={loading} tracks={tracks} />}
-        {isArtist && <ArtistsList loading={loading} artists={artists} />}
-        {isAlbum && <AlbumsList loading={loading} albums={albums} />}
+        <div className="w-full pt-4 m-auto flex justify-center items-center">
+          {isTrack && <SongsList loading={loading} tracks={tracks} />}
+          {isArtist && <ArtistsList loading={loading} artists={artists} />}
+          {isAlbum && <AlbumsList loading={loading} albums={albums} />}
+        </div>
       </SpotifyContext.Provider>
     </Content>
   );
