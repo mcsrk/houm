@@ -16,6 +16,7 @@ const Main = () => {
       <BackTop />
       <Header />
       <Switch>
+        {/* Set up router for future routes and more content/functionalities */}
         <Route path="/" exact>
           <Content />
         </Route>

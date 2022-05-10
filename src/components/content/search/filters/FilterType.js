@@ -1,12 +1,14 @@
+import { useContext } from "react";
+
+// Utils
+import SpotifyContext from "context/spotifyContext";
+
 // Consts
-const buttons = [
-  { label: "Albums", value: "albums" },
-  { label: "Artistas", value: "artists" },
-  { label: "Tracks", value: "tracks" },
-];
+import { filterTypeButtons } from "utils/constans";
+
 
 const getOptionButtons = (actionType, setActionType) => {
-  const optionButtons = buttons.map((e) => {
+  const optionButtons = filterTypeButtons.map((e) => {
     const active = e.value === actionType;
     return (
       <span
@@ -25,7 +27,8 @@ const getOptionButtons = (actionType, setActionType) => {
   return optionButtons;
 };
 
-const FilterType = ({ queryType, setQueryType }) => {
+const FilterType = () => {
+  const { queryType, setQueryType } = useContext(SpotifyContext);
   return (
     <div className="mb-6 p-1 shadow-md rounded-3xl flex justify-between max-w-md">
       {getOptionButtons(queryType, setQueryType)}
