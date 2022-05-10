@@ -2,9 +2,9 @@ import { useMemo } from "react";
 import { List } from "antd";
 
 // Components
-import ArtistCard from "./card/ArtistCard";
+import AlbumCard from "./card/AlbumCard";
 
-const ArtistsList = ({ loading, artists }) => {
+const AlbumsList = ({ loading, albums }) => {
   return useMemo(
     () => (
       <List
@@ -12,12 +12,12 @@ const ArtistsList = ({ loading, artists }) => {
         className="w-full m-auto rounded-md shadow-lg"
         size="small"
         grid={{ gutter: 16, column: 4 }}
-        dataSource={artists}
-        renderItem={(artist) => <ArtistCard artistData={artist.data} />}
+        dataSource={albums}
+        renderItem={(album) => <AlbumCard albumData={album.data} />}
       />
     ),
-    [loading, artists]
+    [loading, albums]
   );
 };
 
-export default ArtistsList;
+export default AlbumsList;
