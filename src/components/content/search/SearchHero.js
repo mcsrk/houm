@@ -8,8 +8,8 @@ import FilterType from "./filters/FilterType";
 const { Text } = Typography;
 
 const Description = () => (
-  <Row>
-    <Text strong={true} className="m-0 text-3xl text-trueGray-dark w-3/4">
+  <Row className="text-center">
+    <Text strong={true} className="m-0 text-3xl text-trueGray-dark">
       Encuentra los álbumes, artistas y tracks que más te gustan.
     </Text>
   </Row>
@@ -17,8 +17,8 @@ const Description = () => (
 
 const SearchHero = () => {
   return (
-    <div className="w-full bg-hero-bg bg-center bg-cover bg-no-repeat pt-8 m-auto">
-      <Col className="px-4 mx-auto items-center text-center">
+    <div className="w-full bg-hero-bg bg-center bg-cover bg-no-repeat pt-16 m-auto">
+      <Col className="px-4 flex flex-col items-center w-full">
         <Description />
         <FilterType />
         <SearchBar />

@@ -9,7 +9,7 @@ const SongsList = ({ loading, tracks }) => {
     () => (
       <List
         loading={loading}
-        className="w-full m-auto rounded-md shadow-lg"
+        className="mx-auto max-w-max rounded-md shadow-lg bg-white mt-12"
         size="small"
         dataSource={tracks}
         renderItem={(track) => <SongCard trackData={track.data} />}

@@ -6,14 +6,13 @@ import SpotifyContext from "context/spotifyContext";
 // Consts
 import { filterTypeButtons } from "utils/constans";
 
-
 const getOptionButtons = (actionType, setActionType) => {
   const optionButtons = filterTypeButtons.map((e) => {
     const active = e.value === actionType;
     return (
       <span
         key={"option-" + e.value}
-        className={`p-2 cursor-pointer font-bold text-lg w-32 rounded-3xl  text-houmtxt-button ${
+        className={`m-2 p-1 cursor-pointer font-bold text-lg w-32 rounded-3xl shadow-sm text-center text-houmtxt-button ${
           active
             ? "bg-houmbg-focusBtn text-white"
             : "bg-white hover:bg-gray-100 hover:text-houmtxt-button"
@@ -30,7 +29,7 @@ const getOptionButtons = (actionType, setActionType) => {
 const FilterType = () => {
   const { queryType, setQueryType } = useContext(SpotifyContext);
   return (
-    <div className="mb-6 p-1 shadow-md rounded-3xl flex justify-between max-w-md">
+    <div className="m-6 bg-white shadow-md rounded-3xl flex justify-between">
       {getOptionButtons(queryType, setQueryType)}
     </div>
   );

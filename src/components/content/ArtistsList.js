@@ -9,7 +9,7 @@ const ArtistsList = ({ loading, artists }) => {
     () => (
       <List
         loading={loading}
-        className="w-full m-auto rounded-md shadow-lg"
+        className="mx-auto w-full rounded-md shadow-lg mt-12"
         size="small"
         grid={{ gutter: 16, column: 4 }}
         dataSource={artists}
