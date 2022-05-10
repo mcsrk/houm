@@ -1,8 +1,10 @@
 import { Layout } from "antd";
 import { withRouter } from "react-router";
 
+//Assets
 import { default as logoHeader } from "assets/img/houmLogo.svg";
 
+// Consts
 const { Header } = Layout;
 
 const CustomHeader = () => {

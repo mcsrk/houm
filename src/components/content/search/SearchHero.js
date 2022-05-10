@@ -1,8 +1,10 @@
 import { Col, Row, Typography } from "antd";
 
+// Components
 import SearchBar from "./filters/SearchBar";
 import FilterType from "./filters/FilterType";
 
+// Consts
 const { Text } = Typography;
 
 const SearchHero = ({ onSearch, searchTerm, setSearchTerm, queryType,  setQueryType }) => {

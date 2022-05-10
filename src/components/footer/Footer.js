@@ -5,10 +5,11 @@ import {
   GithubOutlined,
 } from "@ant-design/icons";
 
+// Assets
 import { default as logo } from "assets/img/grayLogo.svg";
 
+// Consts
 const { Footer } = Layout;
-
 const mediaInfo = [
   {
     link: "https://www.linkedin.com/in/jhon-acosta-48595314b/",

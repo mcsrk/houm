@@ -1,5 +1,6 @@
 import { Affix, Input } from "antd";
 
+// Consts
 const { Search } = Input;
 
 const SearchBar = ({ onSearch, searchTerm, setSearchTerm }) => {

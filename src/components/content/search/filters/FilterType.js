@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-
+// Consts
 const buttons = [
   { label: "Albums", value: "albums" },
   { label: "Artistas", value: "artists" },
@@ -27,10 +26,6 @@ const getOptionButtons = (actionType, setActionType) => {
 };
 
 const FilterType = ({ queryType, setQueryType }) => {
-  useEffect(() => {
-    setQueryType(buttons[0].value);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <div className="mb-6 p-1 shadow-md rounded-3xl flex justify-between max-w-md">
       {getOptionButtons(queryType, setQueryType)}
