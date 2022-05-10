@@ -5,23 +5,25 @@ import { Layout } from "antd";
 import ArtistsList from "components/content/ArtistsList";
 import SearchHero from "components/content/search/SearchHero";
 import SongsList from "components/content/SongsList";
+import AlbumsList from "components/content/AlbumsList";
 
 // Utils
 import SpotifyContext from "context/spotifyContext";
 import { getRequest } from "axiosClient";
 import { useDebouncedEffect } from "utils/utils";
-import AlbumsList from "components/content/AlbumsList";
 
 // Consts
 const { Content } = Layout;
 
 const ContentPage = () => {
   const [loading, setLoading] = useState(false);
+
   const [searchTerm, setSearchTerm] = useState("tame impala");
   const [queryType, setQueryType] = useState("tracks");
+  const [totalCount, setTotalCount] = useState("0");
   const [offset, setOffset] = useState("0");
-  const [limit, setLimit] = useState("10");
-  const [numOfTopResult, setNumOfTopResult] = useState("5");
+  const [limit, setLimit] = useState("0");
+  const [numOfTopResult, setNumOfTopResult] = useState("0");
 
   const [tracks, setTracks] = useState([]);
   const [artists, setArtist] = useState([]);
@@ -37,8 +39,8 @@ const ContentPage = () => {
       params: {
         q: searchTerm,
         type: queryType,
-        pag_offset: offset,
-        pag_limit: limit,
+        offset: offset,
+        limit: limit,
         numberOfTopResults: numOfTopResult,
       },
     };
@@ -53,9 +55,11 @@ const ContentPage = () => {
     try {
       const searchRes = await getRequest("search", data);
       setters[queryType](searchRes.data[queryType].items);
+      setTotalCount( searchRes.data[queryType].totalCount)
     } catch (error) {
       console.error(error);
       setters[queryType]([]);
+      setTotalCount(0)
     }
     setLoading(false);
   };
@@ -72,16 +76,27 @@ const ContentPage = () => {
         value={{
           searchTerm,
           queryType,
+          totalCount,
+          offset,
+          limit,
+          numOfTopResult,
+
           setSearchTerm,
           setQueryType,
+          setTotalCount,
+          setOffset,
+          setLimit,
+          setNumOfTopResult,
+
           onSearch: fetchSearchData,
         }}
       >
         <SearchHero />
+      
+        {isTrack && <SongsList loading={loading} tracks={tracks} />}
+        {isArtist && <ArtistsList loading={loading} artists={artists} />}
+        {isAlbum && <AlbumsList loading={loading} albums={albums} />}
       </SpotifyContext.Provider>
-      {isTrack && <SongsList loading={loading} tracks={tracks} />}
-      {isArtist && <ArtistsList loading={loading} artists={artists} />}
-      {isAlbum && <AlbumsList loading={loading} albums={albums} />}
     </Content>
   );
 };

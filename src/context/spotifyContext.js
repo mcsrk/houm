@@ -1,9 +1,24 @@
 import { createContext } from "react";
 
 export default createContext({
+
+  // States
   searchTerm: null,
   queryType: null,
-  onSearch: () => {},
+    // Pagination
+  totalCount: null,
+  offset: null,
+  limit: null,
+  numOfTopResult: null,
+
+  // Setters  
   setSearchTerm: () => {},
   setQueryType: () => {},
+
+  setTotalCount: ()=>{},
+  setOffset: ()=>{},
+  setLimit: ()=>{},
+  setNumOfTopResult: ()=>{},
+
+  onSearch: () => {},
 });
