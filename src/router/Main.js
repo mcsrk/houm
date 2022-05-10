@@ -2,10 +2,10 @@ import { BackTop, Layout } from "antd";
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import useWindowDimensions from "../utils/window";
-import Header from "../components/header/Header";
-import Content from "../pages/Content";
-import Footer from "../components/footer/Footer";
+import useWindowDimensions from "utils/window";
+import Header from "components/header/Header";
+import Content from "pages/Content";
+import Footer from "components/footer/Footer";
 
 const Main = ({ visibleDropdown, setVisibleDropdown }) => {
   const { height } = useWindowDimensions();

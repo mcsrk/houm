@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Layout } from "antd";
 
-import { getRequest } from "../axiosClient";
-import SearchHero from "../components/content/search/SearchHero";
-import SongsList from "../components/content/SongsList";
-import { useDebouncedEffect } from "../utils/utils";
+import { getRequest } from "axiosClient";
+import SearchHero from "components/content/search/SearchHero";
+import SongsList from "components/content/SongsList";
+import { useDebouncedEffect } from "utils/utils";
 
 const { Content } = Layout;
 

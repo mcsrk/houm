@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Tooltip, List } from "antd";
 import { PlayCircleOutlined, MoreOutlined } from "@ant-design/icons";
-import { convertMsToMinSec } from "../../../utils/utils";
+import { convertMsToMinSec } from "utils/utils";
 
 const SongCard = ({ trackData }) => {
   const [name, setName] = useState();
@@ -82,7 +82,9 @@ const SongCard = ({ trackData }) => {
             {name}
           </div>
         </Row>
-        <Row className="text-sm">{artists}</Row>
+        <Row className="text-sm w-full text-left overflow-hidden whitespace-nowrap overflow-ellipsis">
+          {artists}
+        </Row>
       </Col>
       {/* play button */}
       <Col span={3} className="flex justify-center items-center">
