@@ -1,35 +1,25 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Row, Col, Tooltip, List } from "antd";
 import { PlayCircleOutlined, MoreOutlined } from "@ant-design/icons";
+
+// Utils
 import { convertMsToMinSec } from "utils/utils";
 
 const SongCard = ({ trackData }) => {
-  const [name, setName] = useState();
-  const [artists, setArtists] = useState([]);
-  const [duration, setDuration] = useState("0:00");
-  const [coverArt, setCoverArt] = useState(null);
-
-  const [albumLink, setAlbumLink] = useState(null);
-  const [albumTitle, setAlbumTitle] = useState(null);
-  const [songLink, setSongLink] = useState(null);
+  const [track, setTrack] = useState({});
 
   useEffect(() => {
-    setName(trackData?.name);
-    setDuration(convertMsToMinSec(trackData?.duration?.totalMilliseconds));
-    setAlbumLink(trackData?.albumOfTrack.uri);
-    setAlbumTitle(trackData?.albumOfTrack.name);
-    const smallestAlbumImage = trackData?.albumOfTrack.coverArt.sources.reduce(
+    
+    const smallestAlbumImage = trackData?.albumOfTrack?.coverArt?.sources?.reduce(
       (smallest, image) => {
         if (image.height < smallest.height) return image;
         return smallest;
       },
-      trackData?.albumOfTrack.coverArt.sources[0]
-    );
-    setCoverArt(smallestAlbumImage);
-    setSongLink(trackData?.uri);
+      trackData?.albumOfTrack?.coverArt?.sources[0]
+    ); 
 
     // Return natural language comma separated artists namelist linked to their profiles
-    const tempArtist = trackData?.artists.items.map((creator, i, arr) => {
+    const tempArtist = trackData?.artists?.items?.map((creator, i, arr) => {
       return (
         <div
           key={"creator-last" + creator?.uri}
@@ -42,28 +32,39 @@ const SongCard = ({ trackData }) => {
           {i !== arr.length - 1 ? "," : ""}
         </div>
       );
-    });
-    setArtists(tempArtist);
-  }, [trackData]);
+    });  
+
+    let trackInfo = {
+      id:trackData?.id,
+      name:trackData?.name,
+      artists:tempArtist,
+      duration:convertMsToMinSec(trackData?.duration?.totalMilliseconds),
+      coverArt:smallestAlbumImage?.url,
+      albumLink:trackData?.albumOfTrack?.uri,
+      albumTitle:trackData?.albumOfTrack?.name,
+      songLink:trackData?.uri,
+    }
+    setTrack(trackInfo)
+
+  }, [trackData]);  
+  
   return (
     <List.Item
-      key={trackData?.id}
+      key={track.id}
       className="flex justify-center items-center bg-gray-50 shadow-sm rounded p-2 max-w-md hover:bg-gray-100 hover:shadow-md"
     >
       {/* thumbnail */}
       <Col span={4}>
-        <Tooltip title={albumTitle} color={"#FF452B"}>
+        <Tooltip title={track.albumTitle} color={"#FF452B"}>
           <div
-            onClick={() => {
-              window.location.replace(albumLink);
-            }}
+            onClick={() => window.location.replace(track.albumLink)}
             className="w-12 rounded-md border-2 border-solid border-transparent hover:border-houmPalette-primary cursor-pointer select-none"
           >
             <img
               className="object-cover w-full h-12 rounded-md"
               alt="single-cover"
               src={
-                coverArt?.url ??
+                track.coverArt  ??
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
               }
             />
@@ -75,29 +76,25 @@ const SongCard = ({ trackData }) => {
         <Row>
           <div
             className="w-full text-left overflow-hidden whitespace-nowrap overflow-ellipsis font-bold text-black hover:underline cursor-pointer hover:text-houmtxt-hover"
-            onClick={() => {
-              window.location.replace(songLink);
-            }}
+            onClick={() => window.location.replace(track.songLink)}
           >
-            {name}
+            {track.name}
           </div>
         </Row>
         <Row className="text-sm w-full text-left overflow-hidden whitespace-nowrap overflow-ellipsis">
-          {artists}
+          {track.artists}
         </Row>
       </Col>
       {/* play button */}
       <Col span={3} className="flex justify-center items-center">
         <PlayCircleOutlined
-          onClick={() => {
-            window.location.replace(songLink);
-          }}
+          onClick={() => window.location.replace(track.songLink)}
           className=" text-lg hover:text-houmPalette-primary cursor-pointer select-none"
         />
       </Col>
       {/* duration */}
       <Col span={3} className="flex justify-center items-center">
-        {duration}
+        {track.duration}
       </Col>
       {/* details */}
       <Col span={2} className="flex justify-center items-center">
