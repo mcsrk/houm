@@ -15,8 +15,8 @@ const AlbumsList = ({ loading, albums }) => {
           gutter: 16,
           xs: 1,
           sm: 2,
-          md: 4,
-          lg: 4,
+          md: 2,
+          lg: 3,
           xl: 4,
           xxl: 4,
         }}

@@ -7,7 +7,7 @@ import SpotifyContext from "context/spotifyContext";
 const SearchBar = () => {
   const { onSearch, searchTerm, setSearchTerm } = useContext(SpotifyContext);
   return (
-    <Affix className="w-2/5 mb-6 mx-auto" offsetTop={10}>
+    <Affix className="w-60 sm:w-96 mb-6 mx-auto" offsetTop={10}>
       <Col>
         <Row>
           <Input

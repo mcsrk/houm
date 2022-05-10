@@ -64,7 +64,7 @@ const renderSectionsList = (list) => {
 };
 
 const renderDescription = () => (
-  <p className="text-base max-w-sm">
+  <p className="text-sm sm:text-base max-w-sm">
     En Houm usamos la tecnología y el diseño para hacer de la experiencia de
     descubrir música algo simple y agradable.
   </p>

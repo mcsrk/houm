@@ -12,7 +12,7 @@ const getOptionButtons = (queryType, setQueryType) => {
     return (
       <span
         key={"option-" + e.value}
-        className={`m-2 p-1 cursor-pointer font-bold text-lg w-32 rounded-3xl shadow-sm text-center text-houmtxt-button ${
+        className={`text-sm sm:text-lg m-2 p-1 cursor-pointer font-bold w-32 rounded-3xl shadow-sm text-center text-houmtxt-button ${
           active
             ? "bg-houmbg-focusBtn text-white"
             : "bg-white hover:bg-gray-100 hover:text-houmtxt-button"
@@ -29,7 +29,7 @@ const getOptionButtons = (queryType, setQueryType) => {
 const FilterType = () => {
   const { queryType, setQueryType } = useContext(SpotifyContext);
   return (
-    <div className="m-6 bg-white shadow-md rounded-3xl flex justify-between">
+    <div className="w-60 sm:w-96 m-6 bg-white shadow-md rounded-3xl flex justify-between">
       {getOptionButtons(queryType, setQueryType)}
     </div>
   );
