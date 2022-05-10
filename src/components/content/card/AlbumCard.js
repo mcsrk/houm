@@ -9,8 +9,11 @@ import { renderArtists } from "utils/utils";
 // Components
 import GenericCard from "./GenericCard";
 
-const renderAlbumAvatar = (cover) => (
-  <div className="w-32 rounded-md">
+const renderAlbumAvatar = (cover, link) => (
+  <div
+    className="w-32 rounded-md border-2 border-solid border-transparent hover:border-houmPalette-primary cursor-pointer select-none"
+    onClick={() => window.location.replace(link)}
+  >
     <img
       className="object-cover w-full h-32 rounded-md"
       alt="album-avatar"
@@ -31,9 +34,7 @@ const renderAlbumName = (name, link) => (
   </div>
 );
 const renderAlbumDate = (date) => (
-  <div className="text-houmtxt-button" >
-    {date}
-  </div>
+  <div className="text-houmtxt-button">{date}</div>
 );
 
 const AlbumCard = ({ albumData }) => {
@@ -44,8 +45,8 @@ const AlbumCard = ({ albumData }) => {
   const link = albumData?.uri;
   return (
     <GenericCard id={"album-" + link}>
-      <Col>
-        <Row>{renderAlbumAvatar(image?.url)}</Row>
+      <Col className="py-2">
+        <Row>{renderAlbumAvatar(image?.url, link)}</Row>
         <Row>{renderAlbumName(name, link)}</Row>
         <Row>{artists}</Row>
         <Row>{renderAlbumDate(date)}</Row>

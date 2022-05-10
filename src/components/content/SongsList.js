@@ -1,5 +1,5 @@
 import { List } from "antd";
-import { useMemo, useContext } from "react";
+import { useMemo, useContext, useEffect } from "react";
 
 // Utils
 import SpotifyContext from "context/spotifyContext";
@@ -8,30 +8,31 @@ import SpotifyContext from "context/spotifyContext";
 import SongCard from "./card/SongCard";
 
 const SongsList = ({ loading, tracks }) => {
+  const { totalCount, limit, setOffset, setLimit } = useContext(SpotifyContext);
 
-  const { totalCount, limit, setOffset, setLimit, } = useContext(SpotifyContext);
-  
-  setLimit("5")
+  useEffect(() => {
+    setLimit("10");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return useMemo(
     () => (
       <List
         loading={loading}
-        className="p-2 mx-auto min-w-min max-w-max rounded-md shadow-lg bg-white mt-12"
+        className="mx-auto mt-12 w-96 max-w-max rounded-md shadow-lg bg-white custom-list"
         size="small"
         dataSource={tracks}
         renderItem={(track) => <SongCard trackData={track.data} />}
         pagination={{
-          onChange: page => { 
-            setOffset(limit * (page-1))
+          onChange: (page) => {
+            setOffset(limit * (page - 1));
           },
           pageSize: limit,
-          showSizeChanger:false,
-          total:totalCount,
-          size:"small",
-          className:"text-center"
+          showSizeChanger: false,
+          total: totalCount,
+          size: "small",
+          className: "text-center",
         }}
-    
       />
     ),
     // eslint-disable-next-line react-hooks/exhaustive-deps

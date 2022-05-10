@@ -7,9 +7,9 @@ import AlbumCard from "./card/AlbumCard";
 const AlbumsList = ({ loading, albums }) => {
   return useMemo(
     () => (
-      <List 
+      <List
         loading={loading}
-        className="mx-auto max-w-max rounded-md shadow-lg mt-12"
+        className="mx-auto mt-12 w-3/5 max-w-max rounded-md shadow-lg bg-white custom-list"
         size="small"
         grid={{
           gutter: 16,
@@ -17,8 +17,8 @@ const AlbumsList = ({ loading, albums }) => {
           sm: 2,
           md: 4,
           lg: 4,
-          xl: 6,
-          xxl: 3,
+          xl: 4,
+          xxl: 4,
         }}
         dataSource={albums}
         renderItem={(album) => <AlbumCard albumData={album.data} />}

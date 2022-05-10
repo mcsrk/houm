@@ -24,7 +24,7 @@ const renderSocialMediaList = (list) => {
             <a
               key={"a-" + ele.link}
               href={ele.link}
-              className="text-muted hover:text-houmPalette-primary"
+              className="text-muted text-houmtxt-button hover:text-houmPalette-primary"
               rel="noreferrer"
             >
               {ele.icon}
@@ -49,7 +49,7 @@ const renderSectionsList = (list) => {
               <a
                 key={"a-" + ele.link}
                 href={ele.link ?? "#"}
-                className="text-muted hover:text-houmtxt-hover"
+                className="text-muted text-houmtxt-button hover:text-houmtxt-hover"
                 rel="noreferrer"
               >
                 {ele?.icon}

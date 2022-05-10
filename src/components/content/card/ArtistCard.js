@@ -4,9 +4,9 @@ import { Col, Row } from "antd";
 import GenericCard from "./GenericCard";
 
 const renderArtistAvatar = (cover) => (
-  <div className="w-32 rounded-md border-2 border-solid border-transparent hover:border-houmPalette-primary cursor-pointer select-none">
+  <div className="mx-auto w-32 rounded-full shadow-sm border-2 border-solid border-transparent hover:border-houmPalette-primary hover:shadow-lg cursor-pointer select-none">
     <img
-      className="object-cover w-full h-32 rounded-md"
+      className="object-cover w-full h-32 rounded-full"
       alt="artist-avatar"
       src={
         cover ??
@@ -18,9 +18,14 @@ const renderArtistAvatar = (cover) => (
 
 const renderArtistName = (name, link) => (
   <div
-    className="w-full text-left overflow-hidden whitespace-nowrap overflow-ellipsis font-bold text-black hover:underline cursor-pointer hover:text-houmtxt-hover"
+    className="text-center mx-auto overflow-hidden whitespace-nowrap overflow-ellipsis font-bold text-black hover:underline cursor-pointer hover:text-houmtxt-hover"
     onClick={() => window.location.replace(link)}
   >
+    {name}
+  </div>
+);
+const renderLabel = (name) => (
+  <div className="text-center w-full overflow-hidden whitespace-nowrap overflow-ellipsis">
     {name}
   </div>
 );
@@ -33,10 +38,10 @@ const ArtistCard = ({ artistData }) => {
   const avatar = sources ? sources[0]?.url : null;
   return (
     <GenericCard id={"artist-" + id}>
-      <Col>
+      <Col className="py-2">
         <Row>{renderArtistAvatar(avatar)}</Row>
         <Row>{renderArtistName(name, uri)}</Row>
-        <Row>Artista</Row>
+        <Row>{renderLabel("Artista")}</Row>
       </Col>
     </GenericCard>
   );
